@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "start": "deno run --allow-read --allow-run --allow-net --allow-env run.ts",
+    "build:binary": "deno compile --unstable --allow-read --allow-run --allow-net --allow-env -o ./dist/ask-cmd src/run.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "ai": "npm:ai",
+    "@vercel/ai-utils": "npm:@vercel/ai-utils",
+    "@ai-sdk/groq": "npm:@ai-sdk/groq",
+    "@ai-sdk/openai": "npm:@ai-sdk/openai",
+    "@ai-sdk/provider": "npm:@ai-sdk/provider",
+    "terminal-kit": "npm:terminal-kit"
+  }
+}
