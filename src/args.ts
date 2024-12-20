@@ -23,6 +23,7 @@ export function parseArgs(args: string[] = process.argv.slice(2)) {
   args = [...args];
   const help = hasArg(args, "help");
   const version = hasArg(args, "version");
+  const showConfig = hasArg(args, "show-config");
   const provider = getArg(args, "provider") || process.env.ASKCMD_PROVIDER;
   const baseUrl = getArg(args, "base-url") || process.env.ASKCMD_BASE_URL;
   const apiKey = getArg(args, "api-key") || process.env.ASKCMD_API_KEY;
@@ -30,6 +31,7 @@ export function parseArgs(args: string[] = process.argv.slice(2)) {
   const promptTemplate = getArg(args, "prompt-template");
   const remaining = args.join(" ");
   return {
+    showConfig,
     provider,
     apiKey,
     modelId,

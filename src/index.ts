@@ -29,6 +29,7 @@ ${colors.bold("OPTIONS")}
   --prompt-template <template>  Set the template to use for the prompt
   --help                   Display this help information
   --version                Display version information
+  --show-config            Display the current configuration
 
 ${colors.bold("ENVIRONMENT")}
   ASK_CMD_PROVIDER         Alternative to --provider
@@ -48,13 +49,24 @@ function getVersion() {
   return pkg.version;
 }
 
+function printVersion() {
+  console.log(`ask-cmd v${getVersion()}`);
+}
+
 if (args.help) {
   printHelp();
   process.exit(0);
 }
 
 if (args.version) {
-  console.log(`ask-cmd v${getVersion()}`);
+  printVersion();
+  process.exit(0);
+}
+
+if (args.showConfig) {
+  printVersion();
+  console.log("Configuration:");
+  console.log(JSON.stringify(config, null, 2));
   process.exit(0);
 }
 
