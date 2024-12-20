@@ -13,5 +13,10 @@
     "@ai-sdk/provider": "npm:@ai-sdk/provider",
     "openai": "npm:openai@^4.77.0",
     "terminal-kit": "npm:terminal-kit"
-  }
+  },
+  "license": "MIT or Apache-2.0",
+  "name": "ask-cmd",
+  "version": "1.0.0",
+  "author": "Igor Aguiar Rodrigues <igoraguiarr@gmail.com>",
+  "repository": ""
 }
