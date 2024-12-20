@@ -1,8 +1,10 @@
 import { colors } from "https://deno.land/x/cliffy@v1.0.0-rc.3/ansi/colors.ts";
 import process from "node:process";
-import readline from "node:readline";
 import { getCompletionService } from "../src/services/completion-factory.ts";
 import { promptCommand } from "../src/prompt-command.ts";
+import { initTerm } from "./term.ts";
+
+initTerm();
 
 /**
  *  Execute and the command output in the terminal

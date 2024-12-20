@@ -1,7 +1,7 @@
 {
   "tasks": {
     "dev": "deno run --watch main.ts",
-    "start": "deno run --allow-read --allow-run --allow-net --allow-env run.ts",
+    "start": "deno run --allow-read --allow-run --allow-net --allow-env ./src/run.ts",
     "build:binary": "deno compile --unstable --allow-read --allow-run --allow-net --allow-env -o ./dist/ask-cmd src/run.ts"
   },
   "imports": {
