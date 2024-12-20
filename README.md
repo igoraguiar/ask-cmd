@@ -12,6 +12,12 @@ deno task build:binary
 
 This will create a binary in the `dist` directory.
 
+## Running with Deno
+
+```bash
+deno task start "your natural language request"
+```
+
 ## Configuration
 
 1. Provider configuration:
