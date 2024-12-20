@@ -1,8 +1,8 @@
 {
   "tasks": {
     "dev": "deno run --watch main.ts",
-    "start": "deno run --allow-read --allow-run --allow-net --allow-env ./src/run.ts",
-    "build:binary": "deno compile --unstable --allow-read --allow-run --allow-net --allow-env -o ./dist/ask-cmd src/run.ts"
+    "start": "deno run --allow-read --allow-run --allow-net --allow-env ./src/index.ts",
+    "build:binary": "deno compile --unstable --allow-read --allow-run --allow-net --allow-env -o ./dist/ask-cmd src/index.ts"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1",

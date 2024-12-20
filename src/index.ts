@@ -1,8 +1,9 @@
 import { colors } from "https://deno.land/x/cliffy@v1.0.0-rc.3/ansi/colors.ts";
 import process from "node:process";
-import { getCompletionService } from "../src/services/completion-factory.ts";
-import { promptCommand } from "../src/prompt-command.ts";
+import { getCompletionService } from "./services/completion-factory.ts";
+import { promptCommand } from "./prompt-command.ts";
 import { initTerm } from "./term.ts";
+import { config } from "./services/config.ts";
 
 initTerm();
 
@@ -29,17 +30,7 @@ async function executeCommand(command: string): Promise<void> {
 }
 
 async function main() {
-  const args = process.argv.slice(2);
-  const providerIndex = args.indexOf("--provider");
-  let provider: string | undefined;
-
-  if (providerIndex !== -1 && providerIndex + 1 < args.length) {
-    provider = args[providerIndex + 1];
-    args.splice(providerIndex, 2);
-  }
-
-  const request = args.join(" ");
-
+  const request = config.request;
   if (!request) {
     console.error("Please provide a command request");
     process.exit(1);
