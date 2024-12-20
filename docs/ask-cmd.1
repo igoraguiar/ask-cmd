@@ -1,0 +1,79 @@
+.TH ASK-CMD 1 "2024" "ask-cmd v1.0.1" "User Commands"
+.SH NAME
+ask-cmd \- convert natural language requests into Linux shell commands using AI
+.SH SYNOPSIS
+.B ask-cmd
+[\fIOPTIONS\fR] <command request>
+.SH DESCRIPTION
+.B ask-cmd
+is a CLI tool that uses AI to convert natural language requests into appropriate shell commands. It presents the generated command for review before execution.
+.SH OPTIONS
+.TP
+.B \-\-provider \fIprovider\fR
+Set the completion provider. Possible values: openai, groq, openai-like. Required.
+.TP
+.B \-\-base-url \fIurl\fR
+Set the base URL for the completion provider. Required for openai-like.
+.TP
+.B \-\-api-key \fIkey\fR
+Set the API key for the completion provider.
+.TP
+.B \-\-model-id \fIid\fR
+Set the model ID for the completion provider.
+.TP
+.B \-\-prompt-template \fItemplate\fR
+Set the template to use for the prompt.
+.TP
+.B \-\-help
+Display help information.
+.TP
+.B \-\-version
+Display version information.
+.SH ENVIRONMENT
+.TP
+.B ASK_CMD_PROVIDER
+Alternative to \-\-provider
+.TP
+.B ASK_CMD_API_KEY
+Alternative to \-\-api-key
+.TP
+.B OPENAI_API_KEY
+OpenAI-specific API key
+.TP
+.B GROQ_API_KEY
+Groq-specific API key
+.TP
+.B ASK_CMD_MODEL_ID
+Alternative to \-\-model-id
+.TP
+.B ASK_CMD_BASE_URL
+Alternative to \-\-base-url
+.TP
+.B ASK_CMD_PROMPT_TEMPLATE
+Alternative to \-\-prompt-template
+.SH EXAMPLES
+.PP
+Show all running processes:
+.PP
+.RS 4
+ask-cmd "show all running processes"
+.RE
+.PP
+Find PDF files:
+.PP
+.RS 4
+ask-cmd "find all pdf files in current directory"
+.RE
+.SH KEYS
+.TP
+.B ENTER
+Execute the generated command
+.TP
+.B CTRL+C or ESC
+Exit without executing
+.SH REQUIREMENTS
+Deno 2 or later is required to build the project.
+.SH AUTHORS
+Igor Aguiar Rodrigues <igoraguiarr@gmail.com>
+.SH SEE ALSO
+Full documentation at: https://github.com/username/ask-cmd
