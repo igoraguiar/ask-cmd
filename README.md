@@ -64,6 +64,10 @@ ask-cmd "find all pdf files in current directory"
 # Outputs something like: find . -name "*.pdf"
 ```
 
+## Authors
+
+- Igor Aguiar Rodrigues <igoraguiarr@gmail.com>
+
 ## License
 
 See the [LICENSE](LICENSE.md) file for license rights.
