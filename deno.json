@@ -11,6 +11,7 @@
     "@ai-sdk/groq": "npm:@ai-sdk/groq",
     "@ai-sdk/openai": "npm:@ai-sdk/openai",
     "@ai-sdk/provider": "npm:@ai-sdk/provider",
+    "openai": "npm:openai@^4.77.0",
     "terminal-kit": "npm:terminal-kit"
   }
 }

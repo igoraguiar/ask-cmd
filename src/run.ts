@@ -43,10 +43,10 @@ async function main() {
     process.exit(1);
   }
 
-  const completionService = getCompletionService(provider);
+  const completionService = getCompletionService();
 
   try {
-    const command = "ls -lh"; //await completionService.getShellCommand(request);
+    const command = await completionService.getShellCommand(request);
     const editedCommand = await promptCommand(command);
     console.log();
     await executeCommand(editedCommand);
