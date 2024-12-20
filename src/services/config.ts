@@ -1,27 +1,16 @@
 import process from "node:process";
 import { SHELL_COMMAND_PROMPT } from "./completion/constants.ts";
+import { args } from "../args.ts";
 
-const args = process.argv.slice(2);
-
-function getArg(key: string) {
-  const index = args.indexOf(`--${key}`);
-  if (index !== -1 && index + 1 < args.length) {
-    const provider = args[index + 1];
-    args.splice(index, 2);
-    return provider;
-  }
-  return undefined;
-}
-
-const provider = getArg("provider") || process.env.ASKCMD_PROVIDER;
-const baseUrl = getArg("base-url") || process.env.ASKCMD_BASE_URL;
-const apiKey = getArg("api-key") || process.env.ASKCMD_API_KEY;
-const modelId = getArg("model-id") || process.env.ASKCMD_MODEL_ID;
+const provider = args.provider || process.env.ASKCMD_PROVIDER;
+const baseUrl = args.baseUrl || process.env.ASKCMD_BASE_URL;
+const apiKey = args.apiKey || process.env.ASKCMD_API_KEY;
+const modelId = args.modelId || process.env.ASKCMD_MODEL_ID;
 const promptTemplate =
-  getArg("prompt-template") ||
+  args.promptTemplate ||
   process.env.ASKCMD_PROMPT_TEMPLATE ||
   SHELL_COMMAND_PROMPT;
-const request = args.join(" ");
+const request = args.remaining;
 
 export const config = {
   provider,
