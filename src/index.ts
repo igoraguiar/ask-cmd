@@ -4,6 +4,59 @@ import { getCompletionService } from "./services/completion-factory.ts";
 import { promptCommand } from "./prompt-command.ts";
 import { initTerm } from "./term.ts";
 import { config } from "./services/config.ts";
+import { args } from "./args.ts";
+import pkg from "../deno.json" with { type: "json" };
+
+function printHelp() {
+  const version = getVersion();
+  console.log(`ask-cmd v${version}
+
+${colors.bold("NAME")}
+  ask-cmd - convert natural language requests into Linux shell commands using AI
+
+${colors.bold("SYNOPSIS")}
+  ask-cmd [OPTIONS] <command request>
+
+${colors.bold("DESCRIPTION")}
+  A CLI tool that uses AI to convert natural language requests into appropriate shell
+  commands. It presents the generated command for review before execution.
+
+${colors.bold("OPTIONS")}
+  --provider <provider>    Set the completion provider (openai, groq, openai-like)
+  --base-url <url>         Set the base URL for the completion provider
+  --api-key <key>          Set the API key for the completion provider
+  --model-id <id>          Set the model ID for the completion provider
+  --prompt-template <template>  Set the template to use for the prompt
+  --help                   Display this help information
+  --version                Display version information
+
+${colors.bold("ENVIRONMENT")}
+  ASK_CMD_PROVIDER         Alternative to --provider
+  ASK_CMD_API_KEY          Alternative to --api-key
+  OPENAI_API_KEY           OpenAI-specific API key
+  GROQ_API_KEY             Groq-specific API key
+  ASK_CMD_MODEL_ID         Alternative to --model-id
+  ASK_CMD_BASE_URL         Alternative to --base-url
+  ASK_CMD_PROMPT_TEMPLATE  Alternative to --prompt-template
+
+${colors.bold("KEYS")}
+  ENTER                  Execute the generated command
+  CTRL+C or ESC          Exit without executing`);
+}
+
+function getVersion() {
+  return pkg.version;
+}
+
+if (args.help) {
+  printHelp();
+  process.exit(0);
+}
+
+if (args.version) {
+  console.log(`ask-cmd v${getVersion()}`);
+  process.exit(0);
+}
 
 initTerm();
 

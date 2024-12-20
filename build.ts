@@ -1,4 +1,4 @@
-const pkg = JSON.parse(Deno.readTextFileSync("deno.json"));
+import pkg from "./deno.json" with { type: "json" };
 const version = pkg.version;
 const name = pkg.name;
 const target = "x86_64-unknown-linux-gnu";
